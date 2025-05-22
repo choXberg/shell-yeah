@@ -45,5 +45,5 @@ function Get-MatchingDates {
         }
     }
 
-    return ($dates | Sort-Object | ForEach-Object { $_.ToString("yyyy-MM-dd") } -join ", ")
+    return ($dates | Sort-Object | ForEach-Object { $_.ToString("yyyy-MM-dd") }) -join ", "
 }
