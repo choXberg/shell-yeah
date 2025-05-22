@@ -1,0 +1,7 @@
+    # Ignore PowerShell temp files and user-specific settings
+    *.ps1~
+    *.psm1~
+    *.suo
+    *.user
+    *.cache
+    *.log
