@@ -7,8 +7,10 @@
  #
  # ========================================== #>
 
+ [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
  # Load function
 . "$PSScriptRoot/date-utils/Get-MatchingDates.ps1"
 
 # Use function with humorous emoji output
-"💣 Stay in bed on: " + (Get-MatchingDates -fromYear 2022 -toYear 2027 -dayOfWeek Friday -dayOfMonth 13)
+"💣 Stay in bed on: " + (Get-MatchingDates -fromYear 2025 -toYear 2026 -dayOfWeek Friday -dayOfMonth 13)
