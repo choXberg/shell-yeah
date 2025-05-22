@@ -9,7 +9,14 @@
  # 
  # ========================================== #>
 
-Test-NetConnection 192.168.1.1 -Port 22
-Test-NetConnection 192.168.1.1 -Port 80
-Test-NetConnection 192.168.1.1 -Port 139
-Test-NetConnection 192.168.1.1 -Port 443
+
+<# 
+$target = "192.168.1.1"
+$ports = 22, 80, 139, 443
+
+foreach ($port in $ports) {
+    $result = Test-NetConnection $target -Port $port -WarningAction SilentlyContinue | Select-Object -ExpandProperty TcpTestSucceeded
+    Write-Output "${port}: $result"
+} #>
+
+22,80,139,443 | ForEach-Object { $r=Test-NetConnection 192.168.1.1 -Port $_ -WarningAction SilentlyContinue | Select-Object -ExpandProperty TcpTestSucceeded; "${_}: $r" }
